@@ -731,6 +731,11 @@ void coinbase_create(YAAMP_COIND *coind, YAAMP_JOB_TEMPLATE *templ, json_value *
 		}
 	}
 	json_value* masternode = json_get_object(json_result, "masternode");
+		if(!masternode){
+    //Try getting indexnode data
+    masternode = json_get_object(json_result, "indexnode");
+
+}
 	bool masternode_enabled = json_get_bool(json_result, "masternode_payments_enforced");
 	if (masternode_enabled && masternode)
 	{
