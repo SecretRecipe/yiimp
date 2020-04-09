@@ -745,7 +745,6 @@ void coinbase_create(YAAMP_COIND *coind, YAAMP_JOB_TEMPLATE *templ, json_value *
 		if (payee && amount) {
 			char script_payee[128] = { 0 };
 			npayees++;
-			available -= amount;
 			base58_decode(payee, script_payee);
 			job_pack_tx(coind, script_dests, amount, script_payee);
 		}
